@@ -1,0 +1,80 @@
+#include "stdio.h"
+void init_pown(int board[8][8]);
+void init_kings(int board[8][8]);
+void init_queens(int board[8][8]);
+void init_knights(int board[8][8]);
+void init_bisheps(int board[8][8]);
+void init_roocks(int board[8][8]);
+void free_spase(int board[8][8]);
+
+
+void init_kings(int board[8][8]){
+
+        board [0] [4] = 9;
+        board [7] [4] = 9;
+}
+void init_pown(int board[8][8]) {
+        int i;
+        for (i=0;i<8;i++) {
+               board[1][i] = 1;
+               board[6][i] = 1;
+        }
+}
+void init_queens(int board[8][8]){
+        board [0] [3] = 8;
+        board [7] [3] = 8;
+}
+
+void init_knights(int board[8][8]){
+        board [0] [1] = 4;
+        board [0] [6] = 4;
+        board [7] [1] = 4;
+        board [7] [6] = 4;
+
+}
+
+void init_bisheps(int board[8][8]){
+        board [0] [2] = 3;
+        board [0] [5] = 3;
+        board [7] [2] = 3;
+        board [7] [5] = 3;
+
+}
+void init_roocks(int board [8][8]){
+        board [0] [0] = 5;
+        board [0] [7] = 5;
+        board [7] [0] = 5;
+        board [7] [7] = 5;
+}
+
+void free_spase(int board[8][8]){
+        int i,j;
+        for (i=2;i<6;i++){
+                for(j=2;j<6;j++){
+                        board [i] [j] = 0;
+                }
+        }
+}
+int main(void){
+        int board [8][8]={0};
+
+        int i,j;
+
+        init_pown(board);
+ 	init_kings(board);
+        init_queens(board);
+        init_knights(board);
+        init_bisheps(board);
+        init_roocks(board);
+        free_spase(board);
+        printf("Result matrix is \n");
+      for (i = 0; i < 8; i++)
+       {
+               for (j = 0; j < 8; j++)
+                        printf("%d ",board[i][j]);
+                printf("\n");
+        }
+}
+
+
+                          
